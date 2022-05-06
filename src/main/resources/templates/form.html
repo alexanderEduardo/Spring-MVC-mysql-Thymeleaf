@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragment_Template/layout :: head">
+</head>
+<body>
+<header th:replace="fragment_Template/layout :: nav">
+</header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-center card">
+                <h1 th:text="${SubTitle}"></h1>
+                <div class="card-body">
+                    <form th:action="@{/guardar}" th:object="${producto}" th:method="POST">
+                        <input type="hidden" th:field="*{id}"/>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{nombre}" class="form-control" required/>
+                    </div>
+                        <div class="form-group">
+                            <label>Marca</label>
+                            <input type="text" th:field="*{marca}" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Hecho</label>
+                            <input type="text" th:field="*{madeIn}" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Precio</label>
+                            <input type="text" th:field="*{precio}" class="form-control" required/>
+                        </div>
+                        <!--<input type="submit" value="Enviar" class="btn btn-success">-->
+                        <input type="submit" class="form-control btn btn-secondary"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
